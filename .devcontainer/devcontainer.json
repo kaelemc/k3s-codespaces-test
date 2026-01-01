@@ -3,6 +3,9 @@
   "build": {
     "dockerfile": "Dockerfile"
   },
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+  },
   "overrideCommand": false,
   "privileged": true,
   "runArgs": [
@@ -16,7 +19,7 @@
   "containerEnv": {
     "container": "docker"
   },
-  "postStartCommand": "systemctl enable --now docker && systemctl enable --now k3s",
+  "postStartCommand": "systemctl enable --now k3s",
   "customizations": {
     "vscode": {
       "extensions": [

@@ -9,7 +9,6 @@ RUN apt-get update && apt-get install -y \
     iproute2 \
     kmod \
     btop \
-    docker.io \
     fuse-overlayfs \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
