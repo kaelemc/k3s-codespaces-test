@@ -8,20 +8,14 @@
       "moby": false
     }
   },
-  "overrideCommand": false,
   "privileged": true,
   "runArgs": [
-    "--cgroupns=host",
-    "--tmpfs=/run",
-    "--tmpfs=/run/lock"
+    "--cgroupns=host"
   ],
   "mounts": [
     "source=/sys/fs/cgroup,target=/sys/fs/cgroup,type=bind"
   ],
-  "containerEnv": {
-    "container": "docker"
-  },
-  "postStartCommand": "systemctl enable --now k3s",
+  "postStartCommand": "nohup k3s server > /tmp/k3s.log 2>&1 &",
   "customizations": {
     "vscode": {
       "extensions": [
