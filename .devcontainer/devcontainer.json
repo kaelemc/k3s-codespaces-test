@@ -1,0 +1,27 @@
+{
+  "name": "k3s Development Container",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "overrideCommand": false,
+  "privileged": true,
+  "runArgs": [
+    "--cgroupns=host",
+    "--tmpfs=/run",
+    "--tmpfs=/run/lock"
+  ],
+  "mounts": [
+    "source=/sys/fs/cgroup,target=/sys/fs/cgroup,type=bind"
+  ],
+  "containerEnv": {
+    "container": "docker"
+  },
+  "postStartCommand": "systemctl enable --now k3s",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-kubernetes-tools.vscode-kubernetes-tools"
+      ]
+    }
+  }
+}
