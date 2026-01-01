@@ -15,7 +15,7 @@
   "mounts": [
     "source=/sys/fs/cgroup,target=/sys/fs/cgroup,type=bind"
   ],
-  "postStartCommand": "nohup k3s server > /tmp/k3s.log 2>&1 &",
+  "postStartCommand": "mount --make-rshared / && service k3s start",
   "customizations": {
     "vscode": {
       "extensions": [
