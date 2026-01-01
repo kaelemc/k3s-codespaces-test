@@ -11,7 +11,8 @@
     "--tmpfs=/run/lock"
   ],
   "mounts": [
-    "source=/sys/fs/cgroup,target=/sys/fs/cgroup,type=bind"
+    "source=/sys/fs/cgroup,target=/sys/fs/cgroup,type=bind",
+    "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind"
   ],
   "containerEnv": {
     "container": "docker"
