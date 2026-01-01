@@ -10,6 +10,7 @@ RUN apt-get update && apt-get install -y \
     kmod \
     btop \
     docker.io \
+    fuse-overlayfs \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
@@ -26,7 +27,7 @@ RUN rm -f /lib/systemd/system/multi-user.target.wants/* \
 RUN curl -sfL https://get.k3s.io | INSTALL_K3S_SKIP_START=true sh -
 
 # Configure k3s to work in container environment
-COPY k3s-config.yaml I
+COPY k3s-config.yaml /etc/rancher/k3s/config.yaml
 
 # Set systemd as entrypoint
 STOPSIGNAL SIGRTMIN+3

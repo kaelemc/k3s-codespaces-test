@@ -11,13 +11,12 @@
     "--tmpfs=/run/lock"
   ],
   "mounts": [
-    "source=/sys/fs/cgroup,target=/sys/fs/cgroup,type=bind",
-    "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind"
+    "source=/sys/fs/cgroup,target=/sys/fs/cgroup,type=bind"
   ],
   "containerEnv": {
     "container": "docker"
   },
-  "postStartCommand": "systemctl enable --now k3s",
+  "postStartCommand": "systemctl enable --now docker && systemctl enable --now k3s",
   "customizations": {
     "vscode": {
       "extensions": [
