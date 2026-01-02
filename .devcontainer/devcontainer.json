@@ -1,8 +1,6 @@
 {
   "name": "k3s Development Container",
-  "build": {
-    "dockerfile": "Dockerfile"
-  },
+  "image": "ghcr.io/kaelemc/k3s-cs:latest",
   "features": {
     "ghcr.io/devcontainers/features/docker-in-docker:2": {
       "moby": false
@@ -15,7 +13,7 @@
   "mounts": [
     "source=/sys/fs/cgroup,target=/sys/fs/cgroup,type=bind"
   ],
-  "postStartCommand": "mount --make-rshared / && service k3s start",
+  "postStartCommand": ".devcontainer/post-start.sh",
   "customizations": {
     "vscode": {
       "extensions": [

@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/devcontainers/base:debian
+FROM mcr.microsoft.com/devcontainers/base:bookworm
 
 # Install k3s dependencies
 RUN apt-get update && apt-get install -y \
