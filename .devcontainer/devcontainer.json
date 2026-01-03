@@ -1,19 +1,31 @@
 {
   "name": "k3s Development Container",
-  "image": "ghcr.io/kaelemc/k3s-cs:latest",
-  "features": {
-    "ghcr.io/devcontainers/features/docker-in-docker:2": {
-      "moby": false
-    }
+  // "image": "ghcr.io/kaelemc/k3s-cs:built-v0.1.1",
+  "build": {
+    "dockerfile": "Dockerfile"
   },
+  "overrideCommand": false,
   "privileged": true,
   "runArgs": [
     "--cgroupns=host"
   ],
   "mounts": [
-    "source=/sys/fs/cgroup,target=/sys/fs/cgroup,type=bind"
+    "source=/sys/fs/cgroup,target=/sys/fs/cgroup,type=bind",
+    "source=/var/run/docker.sock,target=/host-docker.sock,type=bind",
+    "source=/root/k3s-data,target=/var/lib/rancher/k3s,type=bind"
   ],
   "postStartCommand": ".devcontainer/post-start.sh",
+  "onCreateCommand": ".devcontainer/on-create.sh",
+  "containerEnv": {
+    "KUBECONFIG": "/etc/rancher/k3s/k3s.yaml"
+  },
+  "forwardPorts": [9443],
+  "portsAttributes": {
+    "9443": {
+      "label": "EDA UI",
+      "protocol": "https"
+    }
+  },
   "customizations": {
     "vscode": {
       "extensions": [

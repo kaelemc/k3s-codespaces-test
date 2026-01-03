@@ -1,21 +1,20 @@
-FROM mcr.microsoft.com/devcontainers/base:bookworm
+FROM registry.access.redhat.com/ubi9/ubi-init
 
-# Install k3s dependencies
-RUN apt-get update && apt-get install -y \
+RUN dnf install -y \
     iptables \
-    iproute2 \
     kmod \
-    btop \
-    fuse-overlayfs \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
+    make \
+    git \
+    hostname \
+    zstd \
+    && dnf clean all
 
-# Install k3s
-RUN curl -sfL https://get.k3s.io | INSTALL_K3S_SKIP_START=true sh -
-
-# Configure k3s
 COPY k3s-config.yaml /etc/rancher/k3s/config.yaml
 
-# Install k3s init script
-COPY k3s-init /etc/init.d/k3s
-RUN chmod +x /etc/init.d/k3s
+RUN dnf config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo && \
+    dnf install -y docker-ce-cli && dnf clean all
+
+RUN curl -sfL https://get.k3s.io | INSTALL_K3S_SKIP_START=true INSTALL_K3S_SKIP_ENABLE=true sh -
+
+# Enable k3s for systemd
+RUN ln -sf /etc/systemd/system/k3s.service /etc/systemd/system/multi-user.target.wants/k3s.service

@@ -1,0 +1,1 @@
+echo "export PATH=$PATH:/workspaces/k3s-codespaces-test/playground/tools" > /etc/profile.d/eda-tools.sh
