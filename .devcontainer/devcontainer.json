@@ -15,8 +15,8 @@
     "source=/k3s-data,target=/var/lib/rancher/k3s,type=bind"
   ],
   "initializeCommand": ".devcontainer/init.sh",
-  "postStartCommand": ".devcontainer/post-start.sh",
   "onCreateCommand": ".devcontainer/on-create.sh",
+  "postStartCommand": ".devcontainer/post-start.sh",
   "containerEnv": {
     "KUBECONFIG": "/etc/rancher/k3s/k3s.yaml"
   },
