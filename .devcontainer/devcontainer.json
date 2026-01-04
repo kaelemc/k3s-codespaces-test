@@ -13,7 +13,7 @@
     "source=/sys/fs/cgroup,target=/sys/fs/cgroup,type=bind",
     "source=/var/run/docker.sock,target=/host-docker.sock,type=bind"
   ],
-  "initializeCommand": ".devcontainer/init.sh",
+  // "initializeCommand": ".devcontainer/init.sh",
   "onCreateCommand": ".devcontainer/on-create.sh",
   "postStartCommand": ".devcontainer/post-start.sh",
   "containerEnv": {
