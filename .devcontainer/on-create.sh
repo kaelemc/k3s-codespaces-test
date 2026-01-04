@@ -1,3 +1,6 @@
 # git clone https://github.com/kaelemc/playground && cd playground
 # make download-tools
+sudo tar --exclude='*/fs/dev/*' -xf /k3s.tar.zst -C /var/lib/rancher/k3s --strip-components=1
+sudo rm -f /k3s.tar.zst
+ls -lah /var/lib/rancher/k3s
 echo "export PATH=$PATH:/workspaces/k3s-codespaces-test/playground/tools" > /etc/profile.d/eda-tools.sh

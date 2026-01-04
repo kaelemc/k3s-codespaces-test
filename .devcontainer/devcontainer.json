@@ -1,6 +1,6 @@
 {
   "name": "k3s Development Container",
-  "image": "ghcr.io/kaelemc/k3s-cs:2",
+  "image": "ghcr.io/kaelemc/k3s-cs:3",
   // "build": {
   //   "dockerfile": "Dockerfile"
   // },
