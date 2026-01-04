@@ -9,6 +9,7 @@ RUN dnf install -y \
     git \
     hostname \
     zstd \
+    jq \
     fuse-overlayfs \
     && dnf clean all
 
