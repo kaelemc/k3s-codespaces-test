@@ -11,10 +11,12 @@
   ],
   "mounts": [
     "source=/sys/fs/cgroup,target=/sys/fs/cgroup,type=bind",
-    "source=/var/run/docker.sock,target=/host-docker.sock,type=bind"
+    "source=/var/run/docker.sock,target=/host-docker.sock,type=bind",
+    "source=k3s-data,target=/var/lib/rancher/k3s,type=volume"
   ],
-  // "initializeCommand": ".devcontainer/init.sh",
+  "initializeCommand": ".devcontainer/init.sh",
   "onCreateCommand": ".devcontainer/on-create.sh",
+  "postCreateCommand": ".devcontainer/post-create.sh",
   "postStartCommand": ".devcontainer/post-start.sh",
   "containerEnv": {
     "KUBECONFIG": "/etc/rancher/k3s/k3s.yaml"
