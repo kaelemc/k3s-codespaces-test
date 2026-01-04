@@ -1,5 +1,5 @@
 write-kubeconfig-mode: "0644"
-snapshotter: overlayfs
+snapshotter: fuse-overlayfs
 node-name: eda-demo
 disable:
   - traefik
