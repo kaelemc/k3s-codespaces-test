@@ -1,6 +1,6 @@
 {
   "name": "k3s Development Container",
-  "image": "ghcr.io/kaelemc/k3s-cs:plswork",
+  "image": "ghcr.io/kaelemc/k3s-cs:abc",
   // "build": {
   //   "dockerfile": "Dockerfile"
   // },

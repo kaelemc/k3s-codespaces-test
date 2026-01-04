@@ -1,3 +1,5 @@
+systemctl start k3s
+k3s ctr images import /images.tar && rm -rf images.tar
 rm -rf playground
 git clone https://github.com/kaelemc/playground 
 cd playground
