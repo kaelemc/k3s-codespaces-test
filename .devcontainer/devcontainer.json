@@ -1,9 +1,9 @@
 {
   "name": "k3s Development Container",
-  // "image": "ghcr.io/kaelemc/k3s-cs:built-v0.1.1",
-  "build": {
-    "dockerfile": "Dockerfile"
-  },
+  "image": "ghcr.io/kaelemc/k3s-cs:2",
+  // "build": {
+  //   "dockerfile": "Dockerfile"
+  // },
   "overrideCommand": false,
   "privileged": true,
   "runArgs": [
@@ -11,8 +11,7 @@
   ],
   "mounts": [
     "source=/sys/fs/cgroup,target=/sys/fs/cgroup,type=bind",
-    "source=/var/run/docker.sock,target=/host-docker.sock,type=bind",
-    "source=/k3s-data,target=/var/lib/rancher/k3s,type=bind"
+    "source=/var/run/docker.sock,target=/host-docker.sock,type=bind"
   ],
   "initializeCommand": ".devcontainer/init.sh",
   "onCreateCommand": ".devcontainer/on-create.sh",
